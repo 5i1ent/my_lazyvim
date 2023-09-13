@@ -18,6 +18,42 @@ return {
         })
     end,
   },
+
+    {
+        'akinsho/toggleterm.nvim',
+        config = function()
+            require("toggleterm").setup({
+                direction = 'horizontal',
+                size = 26,
+                shade_terminals = false,
+                start_in_insert = true,
+                autochdir = true,
+                hide_numbers = true,
+                float_opts = {
+                    border = 'single',
+                },
+            })
+        end,
+
+            vim.api.nvim_set_keymap('t', '<leader>\\', '<Cmd> :ToggleTerm<CR>', { noremap = true, silent = true }),
+            vim.api.nvim_set_keymap('n', '<leader>\\', '<Cmd> :ToggleTerm<CR>', { noremap = true, silent = true }),
+    },
+    {
+
+        'nvim-telescope/telescope.nvim',
+        config = function()
+            require("telescope").setup({
+                defaults = {
+                    sorting_strategy = "ascending",
+                    -- borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
+                    prompt_position = "top",
+                    preview_cutoff = 120,
+                    border = true,
+                    layout_strategy = "bottom_pane",
+                }
+            })
+        end,
+    }
 }
 
 -- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
