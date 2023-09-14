@@ -1,87 +1,109 @@
 ---@diagnostic disable: missing-fields
 -- since this is just an example spec, don't actually load anything here and return an empty spec
--- stylua: ignore
 -- if true then return {} end
 
 return {
-  {
-    "hrsh7th/cmp-cmdline",
+    {
+        "hrsh7th/cmp-cmdline",
         config = function()
             local cmp = require("cmp")
-            cmp.setup.cmdline('/', {
+            cmp.setup.cmdline("/", {
                 mapping = cmp.mapping.preset.cmdline(),
                 sources = {
-                { name = 'buffer' }
-            }
+                    { name = "buffer" },
+                },
             })
-                -- `:` cmdline setup.
-            cmp.setup.cmdline(':', {
-            mapping = cmp.mapping.preset.cmdline(),
+            cmp.setup.cmdline(":", {
+                mapping = cmp.mapping.preset.cmdline(),
                 sources = cmp.config.sources({
-                    { name = 'path' }
+                    { name = "path" },
                 }, {
                     {
-                    name = 'cmdline',
-                    option = {
-                        ignore_cmds = { 'Man', '!' }
-                    }
-                    }
+                        name = "cmdline",
+                        option = {
+                            ignore_cmds = { "Man", "!" },
+                        },
+                    },
+                }),
             })
-    })
-    end
-  },
-
-  {"folke/noice.nvim", enabled = false},
-  { "amedoeyes/eyes.nvim" },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "eyes",
+        end,
     },
-  },
-  {
-    "ahmedkhalf/project.nvim",
-    config = function()
-        require('project_nvim').setup({
-            patterns = {".proj"},
-            manual_mode = true,
-        })
-    end,
-  },
+
+    { "folke/noice.nvim", enabled = true },
+    {
+        "rcarriga/nvim-notify",
+        enabled = true,
+        config = function()
+            local stages = require("notify.stages.slide")("top_down")
+            local notify = require("notify")
+
+            notify.setup({
+                render = "compact",
+                stages = {
+                    function(...)
+                        local opts = stages[1](...)
+                        if opts then
+                            opts.border = "none"
+                            opts.row = opts.row + 1
+                        end
+                        return opts
+                    end,
+                    unpack(stages, 2),
+                },
+                timeout = 2000,
+            })
+        end,
+    },
+    { "amedoeyes/eyes.nvim" },
+    {
+        "LazyVim/LazyVim",
+        opts = {
+            colorscheme = "eyes",
+        },
+    },
+    {
+        "ahmedkhalf/project.nvim",
+        config = function()
+            require("project_nvim").setup({
+                patterns = { ".proj" },
+                manual_mode = true,
+            })
+        end,
+    },
 
     {
-        'akinsho/toggleterm.nvim',
+        "akinsho/toggleterm.nvim",
         config = function()
             require("toggleterm").setup({
-                direction = 'horizontal',
+                direction = "horizontal",
                 size = 26,
                 shade_terminals = false,
                 start_in_insert = true,
                 autochdir = true,
                 hide_numbers = true,
                 float_opts = {
-                    border = 'single',
+                    border = "single",
                 },
             })
         end,
 
-            vim.api.nvim_set_keymap('t', '<leader>\\', '<Cmd> :ToggleTerm<CR>', { noremap = true, silent = true }),
-            vim.api.nvim_set_keymap('n', '<leader>\\', '<Cmd> :ToggleTerm<CR>', { noremap = true, silent = true }),
+        vim.api.nvim_set_keymap("t", "<leader>\\", "<Cmd> :ToggleTerm<CR>", { noremap = true, silent = true }),
+        vim.api.nvim_set_keymap("n", "<leader>\\", "<Cmd> :ToggleTerm<CR>", { noremap = true, silent = true }),
     },
     {
 
-        'nvim-telescope/telescope.nvim',
+        "nvim-telescope/telescope.nvim",
         config = function()
             require("telescope").setup({
                 defaults = {
                     sorting_strategy = "ascending",
                     -- borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
-                    borderchars = { '', '', '', '', '', '', '', '' },
+                    borderchars = { "", "", "", "", "", "", "", "" },
                     prompt_position = "top",
                     preview_cutoff = 120,
                     border = true,
                     layout_strategy = "bottom_pane",
-                }
+                },
             })
         end,
     },
@@ -92,24 +114,24 @@ return {
             require("noice").setup({
                 cmdline = {
                     view = "cmdline",
-                }
+                },
             })
-        end
+        end,
     },
 
     {
         "nvim-neo-tree/neo-tree.nvim",
-        config = function ()
+        config = function()
             require("neo-tree").setup({
                 ["."] = function(state)
-                    local current_node = state.tree:get_node()		-- this is the current node
-                    local path = current_node:get_id()				-- this gives you the path
-                    require("neo-tree.sources.filesystem.commands").set_root(state)		-- call the default set_root
+                    local current_node = state.tree:get_node() -- this is the current node
+                    local path = current_node:get_id() -- this gives you the path
+                    require("neo-tree.sources.filesystem.commands").set_root(state) -- call the default set_root
                     -- do whatever you want to do here
                     vim.cmd("cd " .. path)
                 end,
             })
-        end
+        end,
     },
 }
 
