@@ -46,6 +46,7 @@ return {
                 defaults = {
                     sorting_strategy = "ascending",
                     -- borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
+                    borderchars = { '', '', '', '', '', '', '', '' },
                     prompt_position = "top",
                     preview_cutoff = 120,
                     border = true,
@@ -53,6 +54,18 @@ return {
                 }
             })
         end,
+    },
+
+    {
+        "folke/noice.nvim",
+        config = function()
+            require("noice").setup({
+                cmdline = {
+                    view = "cmdline",
+                }
+            })
+        end
+
     }
 }
 
