@@ -1,8 +1,37 @@
+---@diagnostic disable: missing-fields
 -- since this is just an example spec, don't actually load anything here and return an empty spec
 -- stylua: ignore
 -- if true then return {} end
 
 return {
+  {
+    "hrsh7th/cmp-cmdline",
+        config = function()
+            local cmp = require("cmp")
+            cmp.setup.cmdline('/', {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = {
+                { name = 'buffer' }
+            }
+            })
+                -- `:` cmdline setup.
+            cmp.setup.cmdline(':', {
+            mapping = cmp.mapping.preset.cmdline(),
+                sources = cmp.config.sources({
+                    { name = 'path' }
+                }, {
+                    {
+                    name = 'cmdline',
+                    option = {
+                        ignore_cmds = { 'Man', '!' }
+                    }
+                    }
+            })
+    })
+    end
+  },
+
+  {"folke/noice.nvim", enabled = false},
   { "amedoeyes/eyes.nvim" },
   {
     "LazyVim/LazyVim",
@@ -15,6 +44,7 @@ return {
     config = function()
         require('project_nvim').setup({
             patterns = {".proj"},
+            manual_mode = true,
         })
     end,
   },
@@ -65,8 +95,22 @@ return {
                 }
             })
         end
+    },
 
-    }
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        config = function ()
+            require("neo-tree").setup({
+                ["."] = function(state)
+                    local current_node = state.tree:get_node()		-- this is the current node
+                    local path = current_node:get_id()				-- this gives you the path
+                    require("neo-tree.sources.filesystem.commands").set_root(state)		-- call the default set_root
+                    -- do whatever you want to do here
+                    vim.cmd("cd " .. path)
+                end,
+            })
+        end
+    },
 }
 
 -- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
