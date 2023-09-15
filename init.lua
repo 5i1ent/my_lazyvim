@@ -10,7 +10,7 @@ vim.o.tabstop = 4 -- number of columns occupied by a tab
 vim.o.softtabstop = 4 -- see multiple spaces as tabstops so <BS> does the right thing
 vim.o.expandtab = true -- converts tabs to white space
 vim.o.shiftwidth = 4 -- width for autoindents
-vim.o.numberwidth = 2
+-- vim.o.numberwidth = 2
 vim.o.wildmode = "longest,list" -- get bash-like tab completions
 vim.o.mouse = "a" -- enable mouse click
 vim.o.clipboard = "unnamedplus" -- using system clipboard
@@ -18,7 +18,7 @@ vim.cmd("filetype plugin on")
 vim.o.cursorline = true
 vim.o.cursorcolumn = true
 vim.o.ttyfast = true -- Speed up scrolling in Vim
-vim.o.signcolumn = "number" -- signcolumn to numbers
+-- vim.o.signcolumn = "number" -- signcolumn to numbers
 vim.cmd("hi WhichKeyFloat ctermbg=0") -- whichkey background to termguicolors
 vim.o.number = true
 vim.o.relativenumber = true
@@ -41,14 +41,18 @@ vim.g.neovide_padding_top = 0
 vim.g.neovide_padding_bottom = 0
 vim.g.neovide_padding_right = 0
 vim.g.neovide_padding_left = 0
--- vim.opt.guifont = { "OperatorMono Nerd Font Medium:h10.5" }
--- vim.opt.guifont = { "Pragmata Pro Mono:h10.5" }
-vim.opt.guifont = { "Berkeley Mono:h10" }
+-- vim.opt.guifont = { "OperatorMono Nerd Font Medium:h11" }
+-- vim.opt.guifont = { "Pragmata Pro Mono:h11" }
+vim.opt.guifont = { "Berkeley Mono:h10.5" }
 vim.o.linespace = 3
 vim.g.neovide_scale_factor = 1.0
-vim.cmd("autocmd ColorScheme * highlight Normal guibg=#060708")
--- vim.cmd('autocmd ColorScheme * highlight SignColumn guibg=#090b0b')
-vim.cmd("autocmd ColorScheme * highlight LineNr guibg=#060708")
-vim.cmd("autocmd ColorScheme * highlight CursorLine guibg=#0A0B0C")
 
+-- vim.cmd("autocmd ColorScheme * highlight Normal guibg=#181616")
+-- vim.cmd("autocmd ColorScheme * highlight SignColumn guibg=#181616")
+-- vim.cmd("autocmd ColorScheme * highlight LineNr guibg=#181616")
+-- vim.cmd("autocmd ColorScheme * highlight CursorLine guibg=#0A0B0C")
+
+vim.cmd("autocmd ColorScheme * highlight String guifg=#80AF80")
+vim.cmd("autocmd ColorScheme * highlight Statement guifg=#AF7070")
+vim.cmd("autocmd ColorScheme * highlight Function guifg=#9090AF")
 vim.cmd("colorscheme eyes")

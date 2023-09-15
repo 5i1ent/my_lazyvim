@@ -4,6 +4,28 @@
 
 return {
     {
+        "nvim-lualine/lualine.nvim",
+        config = function()
+            require("lualine").setup({
+                options = {
+                    component_separators = { left = "", right = "" },
+                    section_separators = { left = "", right = "" },
+                },
+            })
+        end,
+    },
+    {
+        "rebelot/kanagawa.nvim",
+        config = function()
+            require("kanagawa").setup({
+                keywordStyle = { italic = false },
+                background = {
+                    dark = "dragon",
+                },
+            })
+        end,
+    },
+    {
         "hrsh7th/cmp-cmdline",
         config = function()
             local cmp = require("cmp")
@@ -50,7 +72,7 @@ return {
                     end,
                     unpack(stages, 2),
                 },
-                timeout = 2000,
+                timeout = 4000,
             })
         end,
     },
@@ -86,9 +108,6 @@ return {
                 },
             })
         end,
-
-        vim.api.nvim_set_keymap("t", "<leader>\\", "<Cmd> :ToggleTerm<CR>", { noremap = true, silent = true }),
-        vim.api.nvim_set_keymap("n", "<leader>\\", "<Cmd> :ToggleTerm<CR>", { noremap = true, silent = true }),
     },
     {
 
