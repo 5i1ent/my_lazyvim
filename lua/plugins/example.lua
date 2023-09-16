@@ -4,23 +4,51 @@
 
 return {
     {
+        "rebelot/kanagawa.nvim",
+        config = function()
+            require("kanagawa").setup({
+                colors = {
+                    palette = {
+                        dragonBlack0 = "#050608",
+                        dragonBlack1 = "#050608",
+                        dragonBlack2 = "#050608",
+                        dragonBlack3 = "#050608",
+                        dragonBlack4 = "#050608",
+                        dragonBlack5 = "#050608",
+                        -- dragonBlack6 = "#050608",
+
+                        dragonWhite = "#c5c9c5",
+                        dragonGreen = "#87a987",
+                        dragonGreen2 = "#8a9a7b",
+                        dragonPink = "#a292a3",
+                        dragonOrange = "#b6927b",
+                        dragonOrange2 = "#b98d7b",
+                        dragonGray = "#a6a69c",
+                        dragonGray2 = "#9e9b93",
+                        dragonGray3 = "#7a8382",
+                        dragonBlue2 = "#8ba4b0",
+                        dragonViolet = "#8992a7",
+                        dragonRed = "#c4746e",
+                        dragonAqua = "#8ea4a2",
+                        dragonAsh = "#737c73",
+                        dragonTeal = "#949fb5",
+                        dragonYellow = "#c4b28a",
+                    },
+                },
+                keywordStyle = { italic = false },
+                background = {
+                    dark = "dragon",
+                },
+            })
+        end,
+    },
+    {
         "nvim-lualine/lualine.nvim",
         config = function()
             require("lualine").setup({
                 options = {
                     component_separators = { left = "", right = "" },
                     section_separators = { left = "", right = "" },
-                },
-            })
-        end,
-    },
-    {
-        "rebelot/kanagawa.nvim",
-        config = function()
-            require("kanagawa").setup({
-                keywordStyle = { italic = false },
-                background = {
-                    dark = "dragon",
                 },
             })
         end,
@@ -80,7 +108,7 @@ return {
     {
         "LazyVim/LazyVim",
         opts = {
-            colorscheme = "eyes",
+            colorscheme = "kanagawa",
         },
     },
     {

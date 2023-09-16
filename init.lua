@@ -35,24 +35,26 @@ vim.o.splitbelow = true
 vim.cmd("command! RCpp :!clang++ -std=c++20 -Wall -Wextra -g % -o %:t:r && ./%:t:r")
 vim.cmd("command! RPython :!python3 %")
 
-vim.g.neovide_transparency = 0.9
+vim.g.neovide_transparency = 0.8
 vim.g.transparency = 0.9
 vim.g.neovide_padding_top = 0
 vim.g.neovide_padding_bottom = 0
 vim.g.neovide_padding_right = 0
 vim.g.neovide_padding_left = 0
 -- vim.opt.guifont = { "OperatorMono Nerd Font Medium:h11" }
--- vim.opt.guifont = { "Pragmata Pro Mono:h11" }
+-- vim.opt.guifont = { "FiraCode Nerd Font:h10" }
 vim.opt.guifont = { "Berkeley Mono:h10.5" }
-vim.o.linespace = 3
+vim.o.linespace = 2
 vim.g.neovide_scale_factor = 1.0
 
--- vim.cmd("autocmd ColorScheme * highlight Normal guibg=#181616")
--- vim.cmd("autocmd ColorScheme * highlight SignColumn guibg=#181616")
--- vim.cmd("autocmd ColorScheme * highlight LineNr guibg=#181616")
+-- vim.cmd("autocmd ColorScheme * highlight Normal guibg=#050607")
+-- vim.cmd("autocmd ColorScheme * highlight SignColumn guibg=#050607")
+-- vim.cmd("autocmd ColorScheme * highlight LineNr guibg=#050607")
 -- vim.cmd("autocmd ColorScheme * highlight CursorLine guibg=#0A0B0C")
 
-vim.cmd("autocmd ColorScheme * highlight String guifg=#80AF80")
-vim.cmd("autocmd ColorScheme * highlight Statement guifg=#AF7070")
-vim.cmd("autocmd ColorScheme * highlight Function guifg=#9090AF")
-vim.cmd("colorscheme eyes")
+-- vim.cmd("autocmd ColorScheme * highlight String guifg=#80AA80")
+-- vim.cmd("autocmd ColorScheme * highlight Statement guifg=#AA7070")
+-- vim.cmd("autocmd ColorScheme * highlight Function guifg=#9090BB")
+-- vim.cmd("autocmd ColorScheme * highlight Type guifg=#BBBB90")
+-- vim.cmd("autocmd ColorScheme * highlight @variable.builtin guifg=#907090")
+vim.cmd("colorscheme kanagawa")
