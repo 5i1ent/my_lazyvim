@@ -9,6 +9,7 @@ return {
             require("kanagawa").setup({
                 colors = {
                     palette = {
+
                         dragonBlack0 = "#050608",
                         dragonBlack1 = "#050608",
                         dragonBlack2 = "#050608",
@@ -16,6 +17,8 @@ return {
                         dragonBlack4 = "#050608",
                         dragonBlack5 = "#050608",
                         -- dragonBlack6 = "#050608",
+                        waveBlue1 = "#101113",
+                        waveBlue2 = "#141517",
 
                         dragonWhite = "#c5c9c5",
                         dragonGreen = "#87a987",
@@ -35,7 +38,15 @@ return {
                         dragonYellow = "#c4b28a",
                     },
                 },
+                theme = {
+                    ui = {
+                        float = {
+                            bg = "none",
+                        },
+                    },
+                },
                 keywordStyle = { italic = false },
+
                 background = {
                     dark = "dragon",
                 },

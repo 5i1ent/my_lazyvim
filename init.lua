@@ -47,14 +47,4 @@ vim.opt.guifont = { "Berkeley Mono:h10.5" }
 vim.o.linespace = 2
 vim.g.neovide_scale_factor = 1.0
 
--- vim.cmd("autocmd ColorScheme * highlight Normal guibg=#050607")
--- vim.cmd("autocmd ColorScheme * highlight SignColumn guibg=#050607")
--- vim.cmd("autocmd ColorScheme * highlight LineNr guibg=#050607")
--- vim.cmd("autocmd ColorScheme * highlight CursorLine guibg=#0A0B0C")
-
--- vim.cmd("autocmd ColorScheme * highlight String guifg=#80AA80")
--- vim.cmd("autocmd ColorScheme * highlight Statement guifg=#AA7070")
--- vim.cmd("autocmd ColorScheme * highlight Function guifg=#9090BB")
--- vim.cmd("autocmd ColorScheme * highlight Type guifg=#BBBB90")
--- vim.cmd("autocmd ColorScheme * highlight @variable.builtin guifg=#907090")
 vim.cmd("colorscheme kanagawa")
