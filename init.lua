@@ -35,15 +35,15 @@ vim.o.splitbelow = true
 vim.cmd("command! RCpp :!clang++ -std=c++20 -Wall -Wextra -g % -o %:t:r && ./%:t:r")
 vim.cmd("command! RPython :!python3 %")
 
-vim.g.neovide_transparency = 0.8
+vim.g.neovide_transparency = 0.95
 vim.g.transparency = 0.9
 vim.g.neovide_padding_top = 0
 vim.g.neovide_padding_bottom = 0
 vim.g.neovide_padding_right = 0
 vim.g.neovide_padding_left = 0
 -- vim.opt.guifont = { "OperatorMono Nerd Font Medium:h11" }
--- vim.opt.guifont = { "FiraCode Nerd Font:h10" }
-vim.opt.guifont = { "Berkeley Mono:h10.5" }
+vim.opt.guifont = { "FiraCode Nerd Font:h10" }
+-- vim.opt.guifont = { "Berkeley Mono:h10.5" }
 vim.o.linespace = 2
 vim.g.neovide_scale_factor = 1.0
 

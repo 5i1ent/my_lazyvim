@@ -1,4 +1,5 @@
 ---@diagnostic disable: missing-fields
+
 -- since this is just an example spec, don't actually load anything here and return an empty spec
 -- if true then return {} end
 
@@ -122,22 +123,22 @@ return {
             colorscheme = "kanagawa",
         },
     },
-    {
-        "ahmedkhalf/project.nvim",
-        config = function()
-            require("project_nvim").setup({
-                patterns = { ".proj" },
-                manual_mode = true,
-            })
-        end,
-    },
+    -- {
+    --     "ahmedkhalf/project.nvim",
+    --     config = function()
+    --         require("project_nvim").setup({
+    --             patterns = { ".proj" },
+    --             manual_mode = true,
+    --         })
+    --     end,
+    -- },
 
     {
         "akinsho/toggleterm.nvim",
         config = function()
             require("toggleterm").setup({
-                direction = "horizontal",
-                size = 26,
+                direction = "tab",
+                size = 100,
                 shade_terminals = false,
                 start_in_insert = true,
                 autochdir = true,
@@ -148,15 +149,16 @@ return {
             })
         end,
     },
-    {
 
+    {
         "nvim-telescope/telescope.nvim",
+
         config = function()
             require("telescope").setup({
                 defaults = {
                     sorting_strategy = "ascending",
-                    -- borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
-                    borderchars = { "", "", "", "", "", "", "", "" },
+                    borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+                    -- borderchars = { "", "", "", "", "", "", "", "" },
                     prompt_position = "top",
                     preview_cutoff = 120,
                     border = true,
@@ -164,6 +166,14 @@ return {
                 },
             })
         end,
+
+        -- require("telescope").load_extension("project"),
+        -- require("telescope").load_extension("file-browser"),
+    },
+    {
+
+        "nvim-telescope/telescope-project.nvim",
+        "nvim-telescope/telescope-file-browser.nvim",
     },
 
     {

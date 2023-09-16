@@ -11,6 +11,21 @@ vim.keymap.del("t", "<C-h>")
 vim.keymap.del("t", "<C-j>")
 vim.keymap.del("t", "<C-k>")
 vim.keymap.del("t", "<C-l>")
+-- vim.keymap.del("n", "<leader>fp>")
+-- vim.keymap.del("n", "<leader>e>")
 
 vim.api.nvim_set_keymap("n", "<c-/>", "<Cmd> :ToggleTerm<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("t", "<c-/>", "<Cmd> :ToggleTerm<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+    "n",
+    "<leader>fp",
+    ":lua require'telescope'.extensions.project.project{}<CR>",
+    { noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap("n", "<leader>e", ":Telescope file_browser<CR>", { noremap = true })
+vim.api.nvim_set_keymap(
+    "n",
+    "<leader>E",
+    ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
+    { noremap = true }
+)
