@@ -29,3 +29,18 @@ vim.api.nvim_set_keymap(
     ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
     { noremap = true }
 )
+
+function Run_code()
+    local file_type = vim.fn.expand("%:e")
+    local command = ""
+
+    if file_type == "cpp" then
+        command = ":!clang++ -std=c++20 -Wall -Wextra -g % -o %:t:r && ./%:t:r"
+        vim.api.nvim_command(command)
+    elseif file_type == "py" then
+        command = ":!python3 %"
+        vim.api.nvim_command(command)
+    end
+end
+
+vim.api.nvim_set_keymap("n", "<C-\\>", ":lua Run_code()<CR>", { noremap = true })

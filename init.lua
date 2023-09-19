@@ -35,7 +35,7 @@ vim.o.splitbelow = true
 vim.cmd("command! RCpp :!clang++ -std=c++20 -Wall -Wextra -g % -o %:t:r && ./%:t:r")
 vim.cmd("command! RPython :!python3 %")
 
-vim.g.neovide_transparency = 0.95
+vim.g.neovide_transparency = 1.0
 vim.g.transparency = 0.9
 vim.g.neovide_padding_top = 0
 vim.g.neovide_padding_bottom = 0
@@ -50,7 +50,6 @@ vim.g.neovide_scale_factor = 1.0
 vim.cmd("autocmd ColorScheme * highlight Constant guifg=#809080")
 vim.cmd("autocmd ColorScheme * highlight Statement guifg=#907070")
 vim.cmd("autocmd ColorScheme * highlight Function guifg=#9090AA")
-vim.cmd("autocmd ColorScheme * highlight Type guifg=#909080")
+vim.cmd("autocmd ColorScheme * highlight @type.builtin gui=none guifg=#AAAA80")
 
 vim.cmd("colorscheme eyes")
-vim.cmd("autocmd ColorScheme * highlight Type gui=none")
