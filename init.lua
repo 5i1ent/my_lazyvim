@@ -41,10 +41,16 @@ vim.g.neovide_padding_top = 0
 vim.g.neovide_padding_bottom = 0
 vim.g.neovide_padding_right = 0
 vim.g.neovide_padding_left = 0
--- vim.opt.guifont = { "OperatorMono Nerd Font Medium:h11" }
-vim.opt.guifont = { "FiraCode Nerd Font:h10" }
--- vim.opt.guifont = { "Berkeley Mono:h10.5" }
+-- vim.opt.guifont = { "Operator Mono Lig:h11" }
+vim.opt.guifont = { "Berkeley Mono:h10" }
+-- vim.opt.guifont = { "Gintronic:h9" }
 vim.o.linespace = 2
 vim.g.neovide_scale_factor = 1.0
 
-vim.cmd("colorscheme kanagawa")
+vim.cmd("autocmd ColorScheme * highlight Constant guifg=#809080")
+vim.cmd("autocmd ColorScheme * highlight Statement guifg=#907070")
+vim.cmd("autocmd ColorScheme * highlight Function guifg=#9090AA")
+vim.cmd("autocmd ColorScheme * highlight Type guifg=#909080")
+
+vim.cmd("colorscheme eyes")
+vim.cmd("autocmd ColorScheme * highlight Type gui=none")

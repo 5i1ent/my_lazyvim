@@ -4,6 +4,20 @@
 -- if true then return {} end
 
 return {
+
+    {
+        "goolord/alpha-nvim",
+        opts = function(_, dashboard)
+            local button = dashboard.button("p", " " .. " Projects", ":Telescope project <CR>")
+            button.opts.hl = "AlphaButtons"
+            button.opts.hl_shortcut = "AlphaShortcut"
+            table.insert(dashboard.section.buttons.val, 4, button)
+        end,
+    },
+    {
+
+        { "ahmedkhalf/project.nvim", enabled = false },
+    },
     {
         "rebelot/kanagawa.nvim",
         config = function()
@@ -91,7 +105,7 @@ return {
         end,
     },
 
-    { "folke/noice.nvim", enabled = true },
+    { "folke/noice.nvim", enabled = false },
     {
         "rcarriga/nvim-notify",
         enabled = true,
@@ -120,7 +134,7 @@ return {
     {
         "LazyVim/LazyVim",
         opts = {
-            colorscheme = "kanagawa",
+            colorscheme = "eyes",
         },
     },
     -- {
@@ -159,10 +173,13 @@ return {
                     sorting_strategy = "ascending",
                     borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
                     -- borderchars = { "", "", "", "", "", "", "", "" },
-                    prompt_position = "top",
+                    -- prompt_position = "top",
                     preview_cutoff = 120,
                     border = true,
                     layout_strategy = "bottom_pane",
+                    layout_config = {
+                        bottom_pane = { height = 0.6, width = 0.999 },
+                    },
                 },
             })
         end,
@@ -174,6 +191,19 @@ return {
 
         "nvim-telescope/telescope-project.nvim",
         "nvim-telescope/telescope-file-browser.nvim",
+    },
+    {
+
+        {
+            "telescope.nvim",
+            dependencies = {
+                "nvim-telescope/telescope-fzf-native.nvim",
+                build = "make",
+                config = function()
+                    require("telescope").load_extension("fzf")
+                end,
+            },
+        },
     },
 
     {
@@ -188,18 +218,7 @@ return {
     },
 
     {
-        "nvim-neo-tree/neo-tree.nvim",
-        config = function()
-            require("neo-tree").setup({
-                ["."] = function(state)
-                    local current_node = state.tree:get_node() -- this is the current node
-                    local path = current_node:get_id() -- this gives you the path
-                    require("neo-tree.sources.filesystem.commands").set_root(state) -- call the default set_root
-                    -- do whatever you want to do here
-                    vim.cmd("cd " .. path)
-                end,
-            })
-        end,
+        { "nvim-neo-tree/neo-tree.nvim", enabled = false },
     },
 }
 
