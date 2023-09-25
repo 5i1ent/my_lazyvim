@@ -4,6 +4,25 @@
 -- if true then return {} end
 
 return {
+    {
+        "kdheepak/monochrome.nvim",
+    },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        event = { "VimEnter" },
+    },
+
+    {
+        "LuckasRanarison/nvim-devdocs",
+        config = function()
+            require("nvim-devdocs").setup({
+                previewer_cmd = "glow",
+                cmd_args = { "-s", "dark", "-w", "80" },
+                picker_cmd = "glow",
+                picker_cmd_args = { "-s", "dark", "-w", "50" },
+            })
+        end,
+    },
 
     {
         "goolord/alpha-nvim",
@@ -25,15 +44,15 @@ return {
                 colors = {
                     palette = {
 
-                        dragonBlack0 = "#050608",
-                        dragonBlack1 = "#050608",
-                        dragonBlack2 = "#050608",
-                        dragonBlack3 = "#050608",
-                        dragonBlack4 = "#050608",
-                        dragonBlack5 = "#050608",
+                        dragonBlack0 = "#080707",
+                        dragonBlack1 = "#080707",
+                        dragonBlack2 = "#080707",
+                        dragonBlack3 = "#080707",
+                        dragonBlack4 = "#080707",
+                        dragonBlack5 = "#080707",
                         -- dragonBlack6 = "#050608",
-                        waveBlue1 = "#101113",
-                        waveBlue2 = "#141517",
+                        waveBlue1 = "#131111",
+                        waveBlue2 = "#181616",
 
                         dragonWhite = "#c5c9c5",
                         dragonGreen = "#87a987",
