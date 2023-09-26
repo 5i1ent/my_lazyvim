@@ -5,7 +5,18 @@
 
 return {
     {
-        "kdheepak/monochrome.nvim",
+        "hrsh7th/nvim-cmp",
+        config = function()
+            local cmp_window = require("cmp.config.window")
+            window = {
+                completion = cmp_window.bordered(),
+                documentation = cmp_window.bordered(),
+            }
+
+            local float = { focusable = true, style = "minimal", border = "single" }
+            vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, float)
+            vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, float)
+        end,
     },
     {
         "nvim-treesitter/nvim-treesitter",
