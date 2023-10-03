@@ -35,24 +35,29 @@ vim.o.splitbelow = true
 vim.cmd("command! RCpp :!clang++ -std=c++20 -Wall -Wextra -g % -o %:t:r && ./%:t:r")
 vim.cmd("command! RPython :!python3 %")
 
-vim.g.neovide_transparency = 1.0
+vim.g.neovide_transparency = 0.8
 vim.g.transparency = 0.9
 vim.g.neovide_padding_top = 0
 vim.g.neovide_padding_bottom = 0
 vim.g.neovide_padding_right = 0
 vim.g.neovide_padding_left = 0
--- vim.opt.guifont = { "Berkeley Mono Variable:h10.5" }
+-- vim.opt.guifont = { "FiraCode Nerd Font:h10" }
 -- vim.opt.guifont = { "OperatorMono Nerd Font Medium:h10.3" }
-vim.opt.guifont = { "Iosevka Fixed Medium Extended:h10" }
--- vim.opt.guifont = { "Iosevka Fixed Slab:h10" }
+-- vim.opt.guifont = { "Iosevka Fixed:h10.2" }
+vim.opt.guifont = { "BlexMono Nerd Font:h9.5" }
 vim.o.linespace = 2
 vim.g.neovide_scale_factor = 1.0
 
--- vim.cmd("autocmd ColorScheme * highlight Normal guibg=#0e0e0e")
-vim.cmd("autocmd ColorScheme * highlight String gui=italic guifg=#80AF80")
-vim.cmd("autocmd ColorScheme * highlight Constant guifg=#80AF80")
-vim.cmd("autocmd ColorScheme * highlight Statement guifg=#AF7070")
-vim.cmd("autocmd ColorScheme * highlight Function guifg=#9090AF")
-vim.cmd("autocmd ColorScheme * highlight Type guifg=#AFAF80")
-vim.cmd("autocmd ColorScheme * highlight @type.builtin gui=none guifg=#AFAF80")
+-- vim.cmd("autocmd ColorScheme * highlight String gui=italic guifg=#80AA80")
+-- vim.cmd("autocmd ColorScheme * highlight Constant guifg=#80AA80")
+-- vim.cmd("autocmd ColorScheme * highlight Statement guifg=#AA7070")
+-- vim.cmd("autocmd ColorScheme * highlight Function guifg=#9090AA")
+-- vim.cmd("autocmd ColorScheme * highlight Type guifg=#AAAA80")
+-- vim.cmd("autocmd ColorScheme * highlight @type.builtin gui=none guifg=#989880")
+
+vim.cmd("autocmd ColorScheme * highlight String gui=italic guifg=#808080")
+vim.cmd("autocmd ColorScheme * highlight @type.builtin gui=italic guifg=#656565")
+vim.cmd("autocmd ColorScheme * highlight Type gui=italic guifg=#606060")
+vim.cmd("autocmd ColorScheme * highlight Statement gui=bold guifg=#454545")
+
 vim.cmd("colorscheme eyes")

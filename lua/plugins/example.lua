@@ -5,18 +5,8 @@
 
 return {
     {
-        "hrsh7th/nvim-cmp",
-        config = function()
-            local cmp_window = require("cmp.config.window")
-            window = {
-                completion = cmp_window.bordered(),
-                documentation = cmp_window.bordered(),
-            }
-
-            local float = { focusable = true, style = "minimal", border = "single" }
-            vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, float)
-            vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, float)
-        end,
+        "mcchrish/zenbones.nvim",
+        "rktjmp/lush.nvim",
     },
     {
         "nvim-treesitter/nvim-treesitter",
@@ -55,15 +45,15 @@ return {
                 colors = {
                     palette = {
 
-                        dragonBlack0 = "#080707",
-                        dragonBlack1 = "#080707",
-                        dragonBlack2 = "#080707",
-                        dragonBlack3 = "#080707",
-                        dragonBlack4 = "#080707",
+                        dragonBlack0 = "#101213",
+                        dragonBlack1 = "#101213",
+                        dragonBlack2 = "#101213",
+                        dragonBlack3 = "#101213",
+                        dragonBlack4 = "#101213",
                         dragonBlack5 = "#080707",
                         -- dragonBlack6 = "#050608",
-                        waveBlue1 = "#131111",
-                        waveBlue2 = "#181616",
+                        waveBlue1 = "#050505",
+                        waveBlue2 = "#101010",
 
                         dragonWhite = "#c5c9c5",
                         dragonGreen = "#87a987",
@@ -135,7 +125,7 @@ return {
         end,
     },
 
-    { "folke/noice.nvim", enabled = false },
+    { "folke/noice.nvim", enabled = true },
     {
         "rcarriga/nvim-notify",
         enabled = true,
@@ -206,9 +196,9 @@ return {
                     -- prompt_position = "top",
                     preview_cutoff = 120,
                     border = true,
-                    layout_strategy = "bottom_pane",
+                    layout_strategy = "vertical",
                     layout_config = {
-                        bottom_pane = { height = 0.6, width = 0.999 },
+                        vertical = { height = 0.999, width = 0.999 },
                     },
                 },
             })
