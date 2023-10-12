@@ -5,10 +5,6 @@
 
 return {
     {
-        "mcchrish/zenbones.nvim",
-        "rktjmp/lush.nvim",
-    },
-    {
         "nvim-treesitter/nvim-treesitter",
         event = { "VimEnter" },
     },
@@ -26,15 +22,6 @@ return {
     },
 
     {
-        "goolord/alpha-nvim",
-        opts = function(_, dashboard)
-            local button = dashboard.button("p", " " .. " Projects", ":Telescope project <CR>")
-            button.opts.hl = "AlphaButtons"
-            button.opts.hl_shortcut = "AlphaShortcut"
-            table.insert(dashboard.section.buttons.val, 4, button)
-        end,
-    },
-    {
 
         { "ahmedkhalf/project.nvim", enabled = false },
     },
@@ -45,15 +32,15 @@ return {
                 colors = {
                     palette = {
 
-                        dragonBlack0 = "#101213",
-                        dragonBlack1 = "#101213",
-                        dragonBlack2 = "#101213",
-                        dragonBlack3 = "#101213",
-                        dragonBlack4 = "#101213",
-                        dragonBlack5 = "#080707",
+                        dragonBlack0 = "#000000",
+                        dragonBlack1 = "#000000",
+                        dragonBlack2 = "#000000",
+                        dragonBlack3 = "#000000",
+                        dragonBlack4 = "#000000",
+                        dragonBlack5 = "#070707",
                         -- dragonBlack6 = "#050608",
-                        waveBlue1 = "#050505",
-                        waveBlue2 = "#101010",
+                        waveBlue1 = "#080808",
+                        waveBlue2 = "#121212",
 
                         dragonWhite = "#c5c9c5",
                         dragonGreen = "#87a987",
@@ -93,6 +80,7 @@ return {
         config = function()
             require("lualine").setup({
                 options = {
+                    theme = "eyes",
                     component_separators = { left = "", right = "" },
                     section_separators = { left = "", right = "" },
                 },
@@ -125,7 +113,7 @@ return {
         end,
     },
 
-    { "folke/noice.nvim", enabled = true },
+    { "folke/noice.nvim", enabled = false },
     {
         "rcarriga/nvim-notify",
         enabled = true,
@@ -157,15 +145,6 @@ return {
             colorscheme = "eyes",
         },
     },
-    -- {
-    --     "ahmedkhalf/project.nvim",
-    --     config = function()
-    --         require("project_nvim").setup({
-    --             patterns = { ".proj" },
-    --             manual_mode = true,
-    --         })
-    --     end,
-    -- },
 
     {
         "akinsho/toggleterm.nvim",
