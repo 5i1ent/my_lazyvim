@@ -5,6 +5,22 @@
 
 return {
     {
+        "mcchrish/zenbones.nvim",
+        "rktjmp/lush.nvim",
+    },
+
+    {
+        "neovim/nvim-lspconfig",
+        ---@class PluginLspOpts
+        opts = {
+            ---@type lspconfig.options
+            servers = {
+                lua_ls = { enabled = false },
+            },
+        },
+    },
+
+    {
         "nvim-treesitter/nvim-treesitter",
         event = { "VimEnter" },
     },
@@ -37,10 +53,10 @@ return {
                         dragonBlack2 = "#000000",
                         dragonBlack3 = "#000000",
                         dragonBlack4 = "#000000",
-                        dragonBlack5 = "#070707",
+                        dragonBlack5 = "#000000",
                         -- dragonBlack6 = "#050608",
-                        waveBlue1 = "#080808",
-                        waveBlue2 = "#121212",
+                        waveBlue1 = "#151515",
+                        waveBlue2 = "#202020",
 
                         dragonWhite = "#c5c9c5",
                         dragonGreen = "#87a987",
@@ -138,11 +154,11 @@ return {
             })
         end,
     },
-    { "amedoeyes/eyes.nvim" },
+    { "5i1ent/eyes.nvim" },
     {
         "LazyVim/LazyVim",
         opts = {
-            colorscheme = "eyes",
+            colorscheme = "zenbones",
         },
     },
 

@@ -14,6 +14,7 @@ vim.keymap.del("t", "<C-l>")
 -- vim.keymap.del("n", "<leader>fp>")
 -- vim.keymap.del("n", "<leader>e>")
 
+-- vim.api.nvim_set_keymap("n", ":", "<cmd> q:<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<c-/>", "<Cmd> :ToggleTerm<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("t", "<c-/>", "<Cmd> :ToggleTerm<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap(
@@ -35,7 +36,7 @@ function Run_code()
     local command = ""
 
     if file_type == "cpp" then
-        command = ":!clang++ -std=c++20 -Wall -Wextra -g % -o %:t:r && ./%:t:r"
+        command = ":!g++ -std=c++20 -O3 -Wall -Wextra -g % -o %:t:r && ./%:t:r"
         vim.api.nvim_command(command)
     elseif file_type == "py" then
         command = ":!python3 %"
