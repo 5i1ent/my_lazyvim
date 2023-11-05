@@ -4,9 +4,24 @@
 -- if true then return {} end
 
 return {
+
+
     {
-        "mcchrish/zenbones.nvim",
-        "rktjmp/lush.nvim",
+        "craftzdog/solarized-osaka.nvim",
+        config = function()
+            require("solarized-osaka").setup({
+                transparent = false,
+
+                styles = {
+                    keywords = { italic = false },
+                },
+
+                on_colors = function(colors)
+                    colors.bg = "#000000"
+                    colors.bg_float = "#000000"
+                end,
+            })
+        end,
     },
 
     {
@@ -91,18 +106,18 @@ return {
             })
         end,
     },
-    {
-        "nvim-lualine/lualine.nvim",
-        config = function()
-            require("lualine").setup({
-                options = {
-                    theme = "eyes",
-                    component_separators = { left = "", right = "" },
-                    section_separators = { left = "", right = "" },
-                },
-            })
-        end,
-    },
+    -- {
+    --     "nvim-lualine/lualine.nvim",
+    --     config = function()
+    --         require("lualine").setup({
+    --             options = {
+    --                 theme = "auto",
+    --                 component_separators = { left = "", right = "" },
+    --                 section_separators = { left = "", right = "" },
+    --             },
+    --         })
+    --     end,
+    -- },
     {
         "hrsh7th/cmp-cmdline",
         config = function()
@@ -158,7 +173,7 @@ return {
     {
         "LazyVim/LazyVim",
         opts = {
-            colorscheme = "zenbones",
+            colorscheme = "eyes",
         },
     },
 
