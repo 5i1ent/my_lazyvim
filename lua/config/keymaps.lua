@@ -45,3 +45,12 @@ function Run_code()
 end
 
 vim.api.nvim_set_keymap("n", "<C-\\>", ":lua Run_code()<CR>", { noremap = true })
+
+
+-- function execute_command_on_word()
+--   local word = vim.fn.expand('<cword>') -- Gets the current word under the cursor
+--   vim.cmd('DevdocsKeywordprg ' .. word) -- Executes "some command" on the word
+--   print(type(word))
+-- end
+--
+vim.api.nvim_set_keymap('n', '<leader>dv', '<cmd> DevdocsOpenCurrent <CR>', {noremap = true, silent = true})

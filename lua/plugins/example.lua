@@ -4,7 +4,9 @@
 -- if true then return {} end
 
 return {
-
+    {
+        "xiyaowong/transparent.nvim"
+    },
 
     {
         "craftzdog/solarized-osaka.nvim",
@@ -45,9 +47,9 @@ return {
         config = function()
             require("nvim-devdocs").setup({
                 previewer_cmd = "glow",
-                cmd_args = { "-s", "dark", "-w", "80" },
+                cmd_args = { "-s", "dark", "-w", "100" },
                 picker_cmd = "glow",
-                picker_cmd_args = { "-s", "dark", "-w", "50" },
+                picker_cmd_args = { "-s", "dark", "-w", "100" },
             })
         end,
     },

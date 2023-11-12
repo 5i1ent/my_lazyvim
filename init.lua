@@ -28,15 +28,15 @@ vim.o.scrolloff = 25
 vim.opt.fillchars = { eob = " " }
 vim.o.background = "dark"
 vim.o.cmdheight = 0
-vim.o.termguicolors = true
+-- vim.o.termguicolors = true
 vim.o.swapfile = false
 vim.o.splitbelow = true
 -- vim.opt.listchars:append("space:·")
 
 vim.opt.guicursor = {
-    -- 'n-v-c:block-Cursor/lCursor-blinkwait700-blinkoff500-blinkon500',
-    "i-ci-ve:ver25-Cursor/lCursor-blinkwait700-blinkoff500-blinkon500",
-    "r-cr:hor20-Cursor/lCursor-blinkwait700-blinkoff500-blinkon500",
+    'n-v-c:block-Cursor/lCursor-blinkwait700-blinkoff700-blinkon700',
+    "i-ci-ve:ver25-Cursor/lCursor-blinkwait700-blinkoff700-blinkon700",
+    "r-cr:hor20-Cursor/lCursor-blinkwait700-blinkoff700-blinkon700",
 }
 vim.g.autoformat = false -- globally
 
@@ -56,21 +56,24 @@ vim.g.neovide_cursor_animate_in_insert_mode = true
 vim.g.neovide_cursor_antialiasing = true
 -- vim.g.neovide_cursor_animation_length = 0.2
 -- vim.g.neovide_cursor_trail_size = 0.0
-vim.g.neovide_scroll_animation_length = 1.0
--- vim.opt.guifont = { "Iosevka Extended:h10" }
--- vim.opt.guifont = { "FiraCode Nerd Font:h9.5" }
-vim.opt.guifont = { "Berkeley Mono Variable:h9.2" }
+-- vim.g.neovide_scroll_animation_length = 1.0
+vim.opt.guifont = { "Iosevka:h9.5" }
+-- vim.opt.guifont = { "Monaspace Argon Medium:h10" }
+-- vim.opt.guifont = { "Berkeley Mono Variable:h10.1" }
+-- vim.opt.guifont = { "UnifontExMono:h11" }
 vim.o.linespace = -1
 vim.g.neovide_scale_factor = 1.0
 
--- vim.cmd("autocmd ColorScheme * highlight NormalFloat guibg=#000000")
--- vim.cmd("autocmd ColorScheme * highlight CursorLine guibg=#070707")
+-- vim.cmd("autocmd ColorScheme * highlight @keyword guifg=#dc312e")
+-- vim.cmd("autocmd ColorScheme * highlight Statement guifg=#dc212e")
+-- vim.cmd("autocmd ColorScheme * highlight String gui=italic")
 -- vim.cmd("autocmd ColorScheme * highlight CursorColumn guibg=#070707")
+-- vim.cmd("autocmd ColorScheme * highlight CursorLine guibg=#070707")
 -- vim.cmd("autocmd ColorScheme * highlight Pmenu guibg=#000000")
--- vim.cmd("autocmd ColorScheme * highlight Type guifg=#606060")
--- vim.cmd("autocmd ColorScheme * highlight Identifier guifg=#b5b5b5")
--- vim.cmd("autocmd ColorScheme * highlight @type.builtin gui=italic guifg=#606060")
--- vim.cmd("autocmd ColorScheme * highlight Function guifg=#858585")
+vim.cmd("autocmd ColorScheme * highlight Type guifg=#606060")
+vim.cmd("autocmd ColorScheme * highlight Identifier guifg=#a5a5a5")
+vim.cmd("autocmd ColorScheme * highlight @type.builtin guifg=#606060")
+vim.cmd("autocmd ColorScheme * highlight Function guifg=#858585")
 
 vim.cmd(
     "autocmd InsertLeave * lua if require('luasnip').session.current_nodes[vim.api.nvim_get_current_buf()] then require('luasnip').unlink_current() end"
