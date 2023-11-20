@@ -5,25 +5,36 @@
 
 return {
     {
-        "xiyaowong/transparent.nvim"
+        "Exafunction/codeium.vim",
+        config = function()
+            require("codeium").setup()
+
+            vim.keymap.set("i", "<C-g>", function()
+                return vim.fn["codeium#Accept"]()
+            end, { expr = true })
+
+            vim.keymap.set("i", "<C-\\>", function()
+                return vim.fn["codeium#Complete"]()
+            end, { expr = true })
+
+            vim.keymap.set("i", "<c-]>", function()
+                return vim.fn["codeium#CycleCompletions"](1)
+            end, { expr = true })
+
+            vim.keymap.set("i", "<c-[>", function()
+                return vim.fn["codeium#CycleCompletions"](-1)
+            end, { expr = true })
+
+            vim.keymap.set("i", "<c-x>", function()
+                return vim.fn["codeium#Clear"]()
+            end, { expr = true })
+
+            vim.g.codeium_manual = true
+        end,
     },
 
     {
-        "craftzdog/solarized-osaka.nvim",
-        config = function()
-            require("solarized-osaka").setup({
-                transparent = false,
-
-                styles = {
-                    keywords = { italic = false },
-                },
-
-                on_colors = function(colors)
-                    colors.bg = "#000000"
-                    colors.bg_float = "#000000"
-                end,
-            })
-        end,
+        { "xiyaowong/transparent.nvim" },
     },
 
     {
@@ -47,9 +58,9 @@ return {
         config = function()
             require("nvim-devdocs").setup({
                 previewer_cmd = "glow",
-                cmd_args = { "-s", "dark", "-w", "100" },
+                cmd_args = { "-s", "~/Documents/glow_monochrome.json" },
                 picker_cmd = "glow",
-                picker_cmd_args = { "-s", "dark", "-w", "100" },
+                picker_cmd_args = { "-s", "~/Documents/glow_monochrome.json" },
             })
         end,
     },

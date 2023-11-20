@@ -34,7 +34,7 @@ vim.o.splitbelow = true
 -- vim.opt.listchars:append("space:·")
 
 vim.opt.guicursor = {
-    'n-v-c:block-Cursor/lCursor-blinkwait700-blinkoff700-blinkon700',
+    "n-v-c:block-Cursor/lCursor-blinkwait700-blinkoff700-blinkon700",
     "i-ci-ve:ver25-Cursor/lCursor-blinkwait700-blinkoff700-blinkon700",
     "r-cr:hor20-Cursor/lCursor-blinkwait700-blinkoff700-blinkon700",
 }
@@ -57,11 +57,10 @@ vim.g.neovide_cursor_antialiasing = true
 -- vim.g.neovide_cursor_animation_length = 0.2
 -- vim.g.neovide_cursor_trail_size = 0.0
 -- vim.g.neovide_scroll_animation_length = 1.0
-vim.opt.guifont = { "Iosevka:h9.5" }
--- vim.opt.guifont = { "Monaspace Argon Medium:h10" }
--- vim.opt.guifont = { "Berkeley Mono Variable:h10.1" }
--- vim.opt.guifont = { "UnifontExMono:h11" }
-vim.o.linespace = -1
+-- vim.opt.guifont = { "Iosevka Curly Extended:h9.3" }
+vim.opt.guifont = { "Fira Code Freeze:h8" }
+-- vim.opt.guifont = { "Berkeley Mono Freeze:h9" }
+vim.o.linespace = 1
 vim.g.neovide_scale_factor = 1.0
 
 -- vim.cmd("autocmd ColorScheme * highlight @keyword guifg=#dc312e")
@@ -70,6 +69,7 @@ vim.g.neovide_scale_factor = 1.0
 -- vim.cmd("autocmd ColorScheme * highlight CursorColumn guibg=#070707")
 -- vim.cmd("autocmd ColorScheme * highlight CursorLine guibg=#070707")
 -- vim.cmd("autocmd ColorScheme * highlight Pmenu guibg=#000000")
+--
 vim.cmd("autocmd ColorScheme * highlight Type guifg=#606060")
 vim.cmd("autocmd ColorScheme * highlight Identifier guifg=#a5a5a5")
 vim.cmd("autocmd ColorScheme * highlight @type.builtin guifg=#606060")
