@@ -4,8 +4,8 @@
 --
 vim.keymap.del("n", "<leader>ft")
 vim.keymap.del("n", "<leader>fT")
--- vim.keymap.del("n", "<c-/>")
--- vim.keymap.del("t", "<c-/>")
+vim.keymap.del("n", "<c-/>")
+vim.keymap.del("t", "<c-/>")
 vim.keymap.del("n", "<c-_>")
 vim.keymap.del("t", "<C-h>")
 vim.keymap.del("t", "<C-j>")
@@ -15,8 +15,11 @@ vim.keymap.del("t", "<C-l>")
 -- vim.keymap.del("n", "<leader>e>")
 
 -- vim.api.nvim_set_keymap("n", ":", "<cmd> q:<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<c-/>", "<Cmd> :ToggleTerm<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("t", "<c-/>", "<Cmd> :ToggleTerm<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<M-t>", "<Cmd> :ToggleTerm<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("t", "<M-t>", "<Cmd> :ToggleTerm<CR>", { noremap = true, silent = true })
+-- Escape terminal mode with ESC
+vim.api.nvim_set_keymap("t", "<ESC ESC>", "<C-\\><C-n>", { noremap = true, silent = true })
+
 vim.api.nvim_set_keymap(
     "n",
     "<leader>fp",
@@ -44,6 +47,6 @@ function Run_code()
     end
 end
 
-vim.api.nvim_set_keymap("n", "<C-\\>", ":lua Run_code()<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<M-r>", ":lua Run_code()<CR>", { noremap = true })
 
 vim.api.nvim_set_keymap("n", "<leader>dv", "<cmd> DevdocsOpenCurrent <CR>", { noremap = true, silent = true })

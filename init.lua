@@ -57,23 +57,15 @@ vim.g.neovide_cursor_antialiasing = true
 -- vim.g.neovide_cursor_animation_length = 0.2
 -- vim.g.neovide_cursor_trail_size = 0.0
 -- vim.g.neovide_scroll_animation_length = 1.0
--- vim.opt.guifont = { "Iosevka Curly Extended:h9.3" }
-vim.opt.guifont = { "Fira Code Freeze:h8" }
--- vim.opt.guifont = { "Berkeley Mono Freeze:h9" }
-vim.o.linespace = 1
+-- vim.opt.guifont = { "Iosevka Medium:h9.7" }
+vim.opt.guifont = { "Source Code Pro Medium:h9" }
+-- vim.opt.guifont = { "PragmataProMonoLiga Nerd Font:h10.1" }
+vim.o.linespace = -1
 vim.g.neovide_scale_factor = 1.0
 
--- vim.cmd("autocmd ColorScheme * highlight @keyword guifg=#dc312e")
--- vim.cmd("autocmd ColorScheme * highlight Statement guifg=#dc212e")
--- vim.cmd("autocmd ColorScheme * highlight String gui=italic")
--- vim.cmd("autocmd ColorScheme * highlight CursorColumn guibg=#070707")
--- vim.cmd("autocmd ColorScheme * highlight CursorLine guibg=#070707")
--- vim.cmd("autocmd ColorScheme * highlight Pmenu guibg=#000000")
---
-vim.cmd("autocmd ColorScheme * highlight Type guifg=#606060")
-vim.cmd("autocmd ColorScheme * highlight Identifier guifg=#a5a5a5")
-vim.cmd("autocmd ColorScheme * highlight @type.builtin guifg=#606060")
-vim.cmd("autocmd ColorScheme * highlight Function guifg=#858585")
+
+vim.cmd("autocmd ColorScheme * highlight Normal guibg=#101010")
+vim.cmd("autocmd ColorScheme * highlight NormalFloat guibg=#101010")
 
 vim.cmd(
     "autocmd InsertLeave * lua if require('luasnip').session.current_nodes[vim.api.nvim_get_current_buf()] then require('luasnip').unlink_current() end"
@@ -87,5 +79,12 @@ vim.cmd(
 --         require("lint").try_lint()
 --     end,
 -- })
---
-vim.cmd("colorscheme eyes")
+
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = opts.border or "single"
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
+
+vim.cmd("colorscheme zenwritten")
