@@ -57,15 +57,15 @@ vim.g.neovide_cursor_antialiasing = true
 -- vim.g.neovide_cursor_animation_length = 0.2
 -- vim.g.neovide_cursor_trail_size = 0.0
 -- vim.g.neovide_scroll_animation_length = 1.0
--- vim.opt.guifont = { "Iosevka Medium:h9.7" }
-vim.opt.guifont = { "Source Code Pro Medium:h9" }
--- vim.opt.guifont = { "PragmataProMonoLiga Nerd Font:h10.1" }
-vim.o.linespace = -1
+vim.opt.guifont = { "Fira Code Freeze:h8.6" }
+-- vim.opt.guifont = { "Source Code Pro Medium:h9" }
+-- vim.opt.guifont = { "PragmataProMonoLiga Nerd Font:h10.3" }
+vim.o.linespace = -2
 vim.g.neovide_scale_factor = 1.0
-
 
 vim.cmd("autocmd ColorScheme * highlight Normal guibg=#101010")
 vim.cmd("autocmd ColorScheme * highlight NormalFloat guibg=#101010")
+vim.cmd("autocmd ColorScheme * highlight Pmenu guibg=#101010")
 
 vim.cmd(
     "autocmd InsertLeave * lua if require('luasnip').session.current_nodes[vim.api.nvim_get_current_buf()] then require('luasnip').unlink_current() end"
@@ -82,9 +82,23 @@ vim.cmd(
 
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-  opts = opts or {}
-  opts.border = opts.border or "single"
-  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+    opts = opts or {}
+    opts.border = opts.border or "single"
+    return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
+
+local cmp = require("cmp")
+cmp.setup({
+    window = {
+        completion = {
+            cmp.config.window.bordered(),
+            border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+        },
+        documentation = {
+            cmp.config.window.bordered(),
+            border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+        },
+    },
+})
 
 vim.cmd("colorscheme zenwritten")

@@ -4,6 +4,16 @@
 -- if true then return {} end
 
 return {
+
+    {
+        "williamboman/mason.nvim",
+        opts = {
+            ui = {
+                border = "single",
+            },
+        },
+    },
+
     {
         "mcchrish/zenbones.nvim",
         "rktjmp/lush.nvim",
