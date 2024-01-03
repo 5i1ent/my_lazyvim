@@ -44,7 +44,7 @@ vim.g.autoformat = false -- globally
 vim.cmd("command! RCpp :!g++ -std=c++20 -O3 -Wall -Wextra -g % -o %:t:r && ./%:t:r")
 vim.cmd("command! RPython :!python3 %")
 
-vim.g.neovide_transparency = 1.0
+vim.g.neovide_transparency = 0.7
 vim.g.transparency = 1.0
 vim.g.neovide_padding_top = 0
 vim.g.neovide_padding_bottom = 0
@@ -57,15 +57,15 @@ vim.g.neovide_cursor_antialiasing = true
 -- vim.g.neovide_cursor_animation_length = 0.2
 -- vim.g.neovide_cursor_trail_size = 0.0
 -- vim.g.neovide_scroll_animation_length = 1.0
-vim.opt.guifont = { "Fira Code Freeze:h8.6" }
--- vim.opt.guifont = { "Source Code Pro Medium:h9" }
--- vim.opt.guifont = { "PragmataProMonoLiga Nerd Font:h10.3" }
-vim.o.linespace = -2
+-- vim.opt.guifont = { "Operator Mono Book:h10" }
+vim.opt.guifont = { "Source Code Pro Medium:h9.2" }
+-- vim.opt.guifont = { "Input Mono Compressed:h9.8" }
+vim.o.linespace = -1
 vim.g.neovide_scale_factor = 1.0
 
-vim.cmd("autocmd ColorScheme * highlight Normal guibg=#101010")
-vim.cmd("autocmd ColorScheme * highlight NormalFloat guibg=#101010")
-vim.cmd("autocmd ColorScheme * highlight Pmenu guibg=#101010")
+vim.cmd("autocmd ColorScheme * highlight Normal guibg=#000000")
+vim.cmd("autocmd ColorScheme * highlight NormalFloat guibg=#000000")
+vim.cmd("autocmd ColorScheme * highlight Pmenu guibg=#000000")
 
 vim.cmd(
     "autocmd InsertLeave * lua if require('luasnip').session.current_nodes[vim.api.nvim_get_current_buf()] then require('luasnip').unlink_current() end"
@@ -100,5 +100,18 @@ cmp.setup({
         },
     },
 })
+
+local zenwritten_lualine = require("lualine.themes.zenwritten")
+zenwritten_lualine.normal.a.bg = ""
+zenwritten_lualine.normal.b.bg = ""
+zenwritten_lualine.normal.c.bg = ""
+zenwritten_lualine.insert.a.bg = ""
+zenwritten_lualine.command.a.bg = ""
+zenwritten_lualine.visual.a.bg = ""
+zenwritten_lualine.replace.a.bg = ""
+zenwritten_lualine.inactive.a.bg = ""
+zenwritten_lualine.inactive.b.bg = ""
+zenwritten_lualine.inactive.c.bg = ""
+
 
 vim.cmd("colorscheme zenwritten")
