@@ -42,7 +42,7 @@ return {
     },
 
     {
-        "Exafunction/codeium.vim",
+        "Exafunction/codeium.nvim",
         config = function()
             require("codeium").setup()
 
